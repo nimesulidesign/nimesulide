@@ -1,22 +1,11 @@
-\---
-
+---
 layout: default
-
 title: "nimesulide"
+---
 
-\---
-
-
-
-\# Benvenuto
-
-
+# Benvenuto
 
 Seleziona la sezione che vuoi esplorare:
 
-
-
-\* 📸 \*\*\[Archivio Instagram](./instagram/)\*\* - I 607 post storici importati da Instagram.
-
-\* ✍️ \*\*\[Post](./new/)\*\* - I contenuti aggiornati e futuri.
-
+* 📸 [Archivio Instagram](./instagram/) - Old Instagram posts.
+* ✍️ [Post](./new/) - Posts.
