@@ -1,0 +1,94 @@
+---
+layout: default
+title: "Archivio Instagram"
+---
+
+<h1>📸 Archivio Instagram</h1>
+<p>Qui trovi l'archivio completo dei post recuperati da Instagram:</p>
+
+<style>
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+  margin-top: 20px;
+}
+.insta-card {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.insta-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.insta-card a {
+  text-decoration: none;
+  color: #24292e;
+  display: block;
+}
+.insta-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  background-color: #f6f8fa;
+}
+.insta-title {
+  padding: 8px 10px;
+  font-size: 0.85em;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+</style>
+
+<ul class="insta-grid">
+{% for page in site.pages %}
+  {% if page.path contains 'instagram/posts/' %}
+    {% assign img_src = '' %}
+    {% if page.image %}
+      {% assign img_src = page.image | relative_url %}
+    {% elsif page.cover %}
+      {% assign img_src = page.cover | relative_url %}
+    {% elsif page.content contains '](' %}
+      {% assign img_parts = page.content | split: '](' %}
+      {% if img_parts.size > 1 %}
+        {% assign raw_path = img_parts[1] | split: ')' | first %}
+        {% assign clean_path = raw_path | replace: '../../', '/' | replace: '../', '/' %}
+        {% assign first_char = clean_path | slice: 0, 1 %}
+        {% if first_char != '/' %}{% assign clean_path = clean_path | prepend: '/' %}{% endif %}
+        {% assign img_src = clean_path | relative_url %}
+      {% endif %}
+    {% endif %}
+
+    <li class="insta-card">
+      <a href="{{ page.url | relative_url }}">
+        {% if img_src != '' %}
+          <img src="{{ img_src }}" alt="{{ page.title }}">
+        {% else %}
+          <img src="{{ '/media/404.jpg' | relative_url }}" alt="{{ page.title }}">
+        {% endif %}
+        <div class="insta-title">{{ page.title | default: page.name }}</div>
+      </a>
+    </li>
+  {% endif %}
+{% endfor %}
+</ul>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll("img").forEach(function(img) {
+    var src = img.getAttribute("src");
+    if (src && src.includes("../../media/")) {
+      img.src = src.replace("../../media/", "{{ '/media/' | relative_url }}");
+    }
+  });
+});
+</script>
