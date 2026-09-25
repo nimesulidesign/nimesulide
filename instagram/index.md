@@ -52,7 +52,7 @@ Qui trovi l'archivio completo dei post recuperati da Instagram:
 
 <ul class="insta-grid">
 {% for page in site.pages %}
-  {% if page.path contains 'instagram/' and page.path != 'instagram/index.md' %}
+  {% if page.path contains 'instagram/posts/' %}
     <li class="insta-card">
       <a href="{{ page.url | relative_url }}">
         {% if page.image %}
