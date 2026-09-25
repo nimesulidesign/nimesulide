@@ -53,19 +53,15 @@ title: "Archivio Instagram"
 {% for page in site.pages %}
   {% if page.path contains 'instagram/posts/' %}
     {% assign img_src = '' %}
-    {% if page.image %}
-      {% assign img_src = page.image | relative_url %}
-    {% elsif page.cover %}
-      {% assign img_src = page.cover | relative_url %}
-    {% elsif page.content contains '](' %}
-      {% assign img_parts = page.content | split: '](' %}
-      {% if img_parts.size > 1 %}
-        {% assign raw_path = img_parts[1] | split: ')' | first %}
-        {% assign clean_path = raw_path | replace: '../../', '/' | replace: '../', '/' %}
-        {% assign first_char = clean_path | slice: 0, 1 %}
-        {% if first_char != '/' %}{% assign clean_path = clean_path | prepend: '/' %}{% endif %}
-        {% assign img_src = clean_path | relative_url %}
+    {% if page.content contains 'src="' %}
+      {% assign parts = page.content | split: 'src="' %}
+      {% assign raw_url = parts[1] | split: '"' | first %}
+      {% assign clean_url = raw_url | replace: '../../', '/' | replace: '../', '/' %}
+      {% assign first_char = clean_url | slice: 0, 1 %}
+      {% if first_char != '/' %}
+        {% assign clean_url = clean_url | prepend: '/' %}
       {% endif %}
+      {% assign img_src = clean_url | relative_url %}
     {% endif %}
 
     <li class="insta-card">
@@ -81,14 +77,3 @@ title: "Archivio Instagram"
   {% endif %}
 {% endfor %}
 </ul>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll("img").forEach(function(img) {
-    var src = img.getAttribute("src");
-    if (src && src.includes("../../media/")) {
-      img.src = src.replace("../../media/", "{{ '/media/' | relative_url }}");
-    }
-  });
-});
-</script>
