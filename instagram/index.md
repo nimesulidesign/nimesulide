@@ -53,12 +53,24 @@ Qui trovi l'archivio completo dei post recuperati da Instagram:
 <ul class="insta-grid">
 {% for page in site.pages %}
   {% if page.path contains 'instagram/posts/' %}
+    {% assign img_src = '' %}
+    {% if page.image %}
+      {% assign img_src = page.image | relative_url %}
+    {% elsif page.cover %}
+      {% assign img_src = page.cover | relative_url %}
+    {% elsif page.content contains '![' %}
+      {% assign img_parts = page.content | split: '](' %}
+      {% if img_parts.size > 1 %}
+        {% assign raw_path = img_parts[1] | split: ')' | first %}
+        {% assign clean_path = raw_path | replace: '../../', '/' %}
+        {% assign img_src = clean_path | relative_url %}
+      {% endif %}
+    {% endif %}
+
     <li class="insta-card">
       <a href="{{ page.url | relative_url }}">
-        {% if page.image %}
-          <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
-        {% elsif page.cover %}
-          <img src="{{ page.cover | relative_url }}" alt="{{ page.title }}">
+        {% if img_src != '' %}
+          <img src="{{ img_src }}" alt="{{ page.title }}">
         {% else %}
           <img src="{{ '/media/404.jpg' | relative_url }}" alt="{{ page.title }}">
         {% endif %}
