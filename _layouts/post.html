@@ -25,6 +25,6 @@ layout: default
 <h1>{{ page.title }}</h1>
 
 <div class="post-body">
-  {% assign media_path = '/media/' | relative_url %}
-  {{ content | replace: '../../media/', media_path | replace: '../media/', media_path }}
+  {% assign abs_media = '/media/' | relative_url %}
+  {{ content | replace: '../../media/', abs_media | replace: '../media/', abs_media }}
 </div>
