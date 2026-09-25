@@ -56,14 +56,14 @@ title: "Archivio Instagram"
 
     {% if page.content contains 'media/' %}
       {% assign parts = page.content | split: 'media/' %}
-      {% assign subpath = parts[1] | split: ')' | first | split: '"' | first %}
-      {% assign img_src = '/media/' | append: subpath | relative_url %}
+      {% assign subpath = parts[1] | split: ')' | first | split: '"' | first | split: ' ' | first %}
+      {% assign img_src = '/media/' | append: subpath | relative_url | replace: '/other/', '/' %}
     {% endif %}
 
     <li class="insta-card">
       <a href="{{ page.url | relative_url }}">
         {% if img_src != '' %}
-          <img src="{{ img_src }}" alt="{{ page.title }}">
+          <img src="{{ img_src }}" alt="{{ page.title }}" data-date="{{ page.date | default: page.title }}" class="grid-img">
         {% else %}
           <div style="height: 180px; display: flex; align-items: center; justify-content: center; background: #eee; color: #888;">Nessuna immagine</div>
         {% endif %}
@@ -73,3 +73,43 @@ title: "Archivio Instagram"
   {% endif %}
 {% endfor %}
 </ul>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var baseUrl = "{{ '/' | relative_url }}".replace(/\/$/, '');
+
+  document.querySelectorAll(".grid-img").forEach(function(img) {
+    function tryFix() {
+      var src = img.getAttribute("src") || "";
+      var filename = src.split("/").pop().split("?")[0];
+      if (!filename) return;
+
+      var postDate = img.getAttribute("data-date") || "";
+      var yyyymm = postDate.replace(/[^0-9]/g, '').substring(0, 6);
+
+      var candidates = [];
+      if (yyyymm.length === 6) {
+        candidates.push(baseUrl + "/media/instagram/" + yyyymm + "/" + filename);
+      }
+      candidates.push(baseUrl + "/media/instagram/" + filename);
+      candidates.push(baseUrl + "/media/" + filename);
+
+      var idx = 0;
+      img.onerror = function() {
+        if (idx < candidates.length) {
+          img.src = candidates[idx++];
+        } else {
+          img.onerror = null;
+        }
+      };
+      img.onerror();
+    }
+
+    if (img.complete && img.naturalWidth === 0) {
+      tryFix();
+    } else {
+      img.addEventListener("error", tryFix, { once: true });
+    }
+  });
+});
+</script>
