@@ -57,8 +57,7 @@ title: "Archivio Instagram"
     {% if page.content contains 'media/' %}
       {% assign parts = page.content | split: 'media/' %}
       {% assign subpath = parts[1] | split: ')' | first | split: '"' | first %}
-      {% assign raw_path = 'media/' | append: subpath %}
-      {% assign img_src = raw_path | relative_url %}
+      {% assign img_src = '/media/' | append: subpath | relative_url %}
     {% endif %}
 
     <li class="insta-card">
