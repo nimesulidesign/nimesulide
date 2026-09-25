@@ -1,114 +1,76 @@
 ---
+layout: default
 title: "Archivio Instagram"
 ---
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archivio Instagram</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-      color: #24292e;
-      background-color: #f6f8fa;
-    }
-    h1 { border-bottom: 1px solid #e1e4e8; padding-bottom: 10px; }
-    .insta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 16px;
-      padding: 0;
-      list-style: none;
-      margin-top: 20px;
-    }
-    .insta-card {
-      border: 1px solid #e1e4e8;
-      border-radius: 8px;
-      overflow: hidden;
-      background: #fff;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .insta-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    .insta-card a {
-      text-decoration: none;
-      color: #24292e;
-      display: block;
-    }
-    .insta-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-      background-color: #eaecef;
-    }
-    .insta-title {
-      padding: 10px;
-      font-size: 0.85em;
-      font-weight: 600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
 
-  <h1>📸 Archivio Instagram</h1>
-  <p>Qui trovi l'archivio completo dei post recuperati da Instagram:</p>
+<style>
+  .insta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    padding: 0;
+    list-style: none;
+    margin-top: 20px;
+  }
+  .insta-card {
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .insta-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .insta-card a {
+    text-decoration: none;
+    color: #24292e;
+    display: block;
+  }
+  .insta-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    background-color: #eaecef;
+  }
+  .insta-title {
+    padding: 10px;
+    font-size: 0.85em;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+</style>
 
-  <ul class="insta-grid">
-  {% for page in site.pages %}
-    {% if page.path contains 'instagram/posts/' %}
-      {% assign img_src = '' %}
-      
-      {% if page.content contains 'media/' %}
-        {% assign parts = page.content | split: 'media/' %}
-        {% assign subpath = parts[1] | split: ')' | first | split: '"' | first %}
-        {% assign img_src = '../media/' | append: subpath %}
-      {% endif %}
+<h1>📸 Archivio Instagram</h1>
+<p>Qui trovi l'archivio completo dei post recuperati da Instagram:</p>
 
-      <li class="insta-card">
-        <a href="{{ page.url | relative_url }}">
-          {% if img_src != '' %}
-            <img src="{{ img_src }}" alt="{{ page.title }}">
-          {% else %}
-            <div style="height: 180px; display: flex; align-items: center; justify-content: center; background: #eee; color: #888;">Nessuna immagine</div>
-          {% endif %}
-          <div class="insta-title">{{ page.title | default: page.name }}</div>
-        </a>
-      </li>
+<ul class="insta-grid">
+{% for page in site.pages %}
+  {% if page.path contains 'instagram/posts/' %}
+    {% assign img_src = '' %}
+
+    {% if page.content contains 'media/' %}
+      {% assign parts = page.content | split: 'media/' %}
+      {% assign subpath = parts[1] | split: ')' | first | split: '"' | first %}
+      {% assign raw_path = 'media/' | append: subpath %}
+      {% assign img_src = raw_path | relative_url %}
     {% endif %}
-  {% endfor %}
-  </ul>
 
-  <script>
-    function fixAllImages() {
-      var repoPrefix = '';
-      var pathParts = window.location.pathname.split('/');
-      if (window.location.hostname.includes('github.io') && pathParts.length > 1 && pathParts[1] !== '') {
-        repoPrefix = '/' + pathParts[1];
-      }
-
-      document.querySelectorAll('img').forEach(function(img) {
-        var src = img.getAttribute('src');
-        if (src && src.includes('media/')) {
-          var mediaSubpath = src.substring(src.indexOf('media/'));
-          img.src = repoPrefix + '/' + mediaSubpath;
-        }
-      });
-    }
-
-    document.addEventListener("DOMContentLoaded", fixAllImages);
-    window.addEventListener("load", fixAllImages);
-  </script>
-
-</body>
-</html>
+    <li class="insta-card">
+      <a href="{{ page.url | relative_url }}">
+        {% if img_src != '' %}
+          <img src="{{ img_src }}" alt="{{ page.title }}">
+        {% else %}
+          <div style="height: 180px; display: flex; align-items: center; justify-content: center; background: #eee; color: #888;">Nessuna immagine</div>
+        {% endif %}
+        <div class="insta-title">{{ page.title | default: page.name }}</div>
+      </a>
+    </li>
+  {% endif %}
+{% endfor %}
+</ul>
