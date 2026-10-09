@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en" translate="no">
 <head>
   <meta charset="UTF-8">
-  <title>New - nimesulide</title>
+  <meta name="google" content="notranslate">
+  <title>New - nimesulidesign</title>
   
 <style>
+  @font-face {
+    font-family: 'MomsTypewriter';
+    src: url('MomsTypewriter.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
   .wm-wrapper { position: relative; display: inline-block; max-width: 100%; overflow: hidden; }
   .wm-wrapper::after {
     content: ''; position: absolute; bottom: 20px; right: 20px; width: 30%; height: 30%;
@@ -16,24 +23,33 @@
 </style>
 
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; background: #f6f8fa; }
+    body { font-family: 'Courier New', Courier, monospace; margin: 0; padding: 0; background: #f6f8fa; }
     .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
     h1 { text-align: center; color: #24292e; display: flex; align-items: center; justify-content: center; gap: 10px; }
-    .empty-state { text-align: center; padding: 50px; color: #586069; background: #fff; border: 1px dashed #e1e4e8; border-radius: 8px; margin-top: 30px; }
+    .insta-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; padding: 0; list-style: none; margin-top: 25px; }
+    .insta-card { border: 1px solid #e1e4e8; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.2s ease; }
+    .insta-card:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .insta-card a { text-decoration: none; color: inherit; display: block; }
+    .insta-card img.grid-img { width: 100%; height: 180px; object-fit: cover; display: block; background: #eaecef; }
+    .insta-title { padding: 10px; font-size: 0.85em; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; color: #24292e; font-family: 'Courier New', Courier, monospace; }
   </style>
 </head>
 <body>
   
-<header style="background-color: #24292e; padding: 14px 20px; border-bottom: 1px solid #e1e4e8; margin-bottom: 25px;">
+<header style="background-color: #ffffff; padding: 14px 20px; border-bottom: 1px solid #ffffff; margin-bottom: 25px;">
   <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
-    <a href="index.html" style="color: #0366d6; font-size: 1.4em; font-weight: bold; text-decoration: none;">nimesulide</a>
+    <div>
+      <span style="font-family: 'MomsTypewriter', monospace; font-size: 0.95em; color: #586069; display: block; margin-bottom: 2px;">CSO</span>
+      <a href="index.html" style="color: #000000; font-size: 1.8em; font-weight: bold; text-decoration: none; font-family: 'MomsTypewriter', monospace; display: block; line-height: 1.1;">nimesulidesign</a>
+      <span style="font-family: 'MomsTypewriter', monospace; font-size: 0.8em; color: #586069; display: block; margin-top: 4px;">A poignant gap between ideas and execution.</span>
+    </div>
     <nav style="display: flex; gap: 20px; align-items: center;">
-      <a href="index.html" style="color: #ffffff; text-decoration: none; font-weight: 600;">🏠 Home</a>
-      <a href="new.html" style="color: #ffffff; text-decoration: none; font-weight: 600; display: flex; align-items: center;">
+      <a href="index.html" style="color: #000000; text-decoration: none; font-weight: 600; font-family: 'Courier New', Courier, monospace;">🏠 Home</a>
+      <a href="new.html" style="color: #000000; text-decoration: none; font-weight: 600; display: flex; align-items: center; font-family: 'Courier New', Courier, monospace;">
         <img src="media/mano.png" class="nav-icon" alt="New" onerror="this.style.display='none'"> New
       </a>
-      <a href="archivio.html" style="color: #58a6ff; text-decoration: none; font-weight: 600; display: flex; align-items: center;">
-        <img src="media/camera.jfif" class="nav-icon" alt="Archivio" onerror="this.style.display='none'"> Archivio Instagram
+      <a href="archivio.html" style="color: #000000; text-decoration: none; font-weight: 600; display: flex; align-items: center; font-family: 'Courier New', Courier, monospace;">
+        <img src="media/camera.jfif" class="nav-icon" alt="Archive" onerror="this.style.display='none'"> Instagram Archive
       </a>
     </nav>
   </div>
@@ -41,12 +57,226 @@
 
   <div class="container">
     <h1><img src="media/mano.png" style="width: 30px; height: 30px; border-radius: 4px; object-fit: contain;"> New</h1>
-    <p style="text-align: center; color: #586069;">I nuovi contenuti verranno pubblicati qui.</p>
-    
-    <div class="empty-state">
-       <p>Nessun nuovo post al momento.</p>
-    </div>
+    <p style="text-align: center; color: #586069;">Ultimi 30 post pubblicati sul sito.</p>
+    <ul class="insta-grid">
+      
+        <li class="insta-card">
+          <a href="post/post_html/20261007_205708_n_o_a_l_g_o_r_i_t_h_m.html">
+            <img class="grid-img" src="media/post/20261007_noalgorithm.jpg" alt="N O A L G O R I T H M" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">N O A L G O R I T H M</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2024-08-27_post_001.html">
+            <img class="grid-img" src="media/instagram/other/18290564908200023.jpg" alt="B Y E B Y E 2 0 2 4 0 8 2 7" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">B Y E B Y E 2 0 2 4 0 8 2 7</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2024-08-18_post_002.html">
+            <img class="grid-img" src="media/instagram/other/18248663026251065.jpg" alt="2 0 2 4 0 8 1 8" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 2 4 0 8 1 8</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2023-12-31_post_003.html">
+            <img class="grid-img" src="media/instagram/other/17871135342032084.jpg" alt="Cerchio cuoriforme      2 0 2 3" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">Cerchio cuoriforme      2 0 2 3</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2023-12-30_post_004.html">
+            <img class="grid-img" src="media/instagram/other/17985628778356010.jpg" alt="Circolarsquare" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">Circolarsquare</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2023-12-24_post_006.html">
+            <img class="grid-img" src="media/instagram/other/18099281956373369.jpg" alt="2 0 2 3 1 2 2 4 # 0 0 1" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 2 3 1 2 2 4 # 0 0 1</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2023-12-24_post_008.html">
+            <img class="grid-img" src="media/instagram/other/18205892698286650.jpg" alt="2 0 2 3 1 2 2 4 # 0 0 2" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 2 3 1 2 2 4 # 0 0 2</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2023-12-24_post_007.html">
+            <img class="grid-img" src="media/instagram/other/17983730456385063.jpg" alt="E L F" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">E L F</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2023-12-24_post_005.html">
+            <img class="grid-img" src="media/instagram/18009915671318756.jpg" alt="2 0 2 3 1 2 2 4 # 0 0 3" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 2 3 1 2 2 4 # 0 0 3</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2022-08-17_post_009.html">
+            <img class="grid-img" src="media/instagram/other/17944508213276418.webp" alt="2 0 2 2 0 8 1 7" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 2 2 0 8 1 7</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2022-07-12_post_010.html">
+            <img class="grid-img" src="media/instagram/other/18176422021225735.webp" alt="2 0 2 2 0 7 1 2" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 2 2 0 7 1 2</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2022-07-04_post_011.html">
+            <img class="grid-img" src="media/instagram/other/17925925982408030.webp" alt="7  D W A R F S" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">7  D W A R F S</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2022-07-03_post_012.html">
+            <img class="grid-img" src="media/instagram/other/17984997955490700.webp" alt="Giraffes  on     the ladder" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">Giraffes  on     the ladder</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2022-06-27_post_013.html">
+            <img class="grid-img" src="media/instagram/other/17941004564156299.webp" alt="A C R O B A T S" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">A C R O B A T S</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2022-06-26_post_014.html">
+            <img class="grid-img" src="media/instagram/other/18140405260262538.webp" alt="W O N D E R F U L E L E P H A N T S" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">W O N D E R F U L E L E P H A N T S</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2022-06-22_post_015.html">
+            <img class="grid-img" src="media/instagram/other/17882094290678153.webp" alt="2 0 2 2 0 6 2 2" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 2 2 0 6 2 2</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2022-06-21_post_016.html">
+            <img class="grid-img" src="media/instagram/other/18182261485200608.webp" alt="L I O N     2 0 2 2 0 6 2 1" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">L I O N     2 0 2 2 0 6 2 1</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2022-03-24_post_017.html">
+            <img class="grid-img" src="media/instagram/other/17929217963151387.webp" alt="2 0 2 2 0 3 2 4" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 2 2 0 3 2 4</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2022-03-06_post_018.html">
+            <img class="grid-img" src="media/prova_filigrana/17939230870903237.webp" alt="Julian Sheather, specialist adviser in ethics and human rights https://www.bmj.com/content/376/bmj.o499" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">Julian Sheather, specialist adviser in ethics and human rights https://www.bmj.com/content/376/bmj.o499</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2022-02-10_post_019.html">
+            <img class="grid-img" src="media/instagram/other/17925887561107673.webp" alt="2 0 2 2 0 2 1 0" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 2 2 0 2 1 0</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2022-01-12_post_020.html">
+            <img class="grid-img" src="media/instagram/other/17916763829093671.webp" alt="2 0 2 2 0 1 1 2" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 2 2 0 1 1 2</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2022-01-05_post_021.html">
+            <img class="grid-img" src="media/instagram/other/17918622932171146.webp" alt="B E F A N A   Once upon a time.....    2 0 2 2 0 1 0 6" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">B E F A N A   Once upon a time.....    2 0 2 2 0 1 0 6</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2021-12-20_post_022.html">
+            <img class="grid-img" src="media/instagram/other/17916874745165516.webp" alt="S C R E A M I N G  T R E E         2 0 1 1 1 2 2 7" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">S C R E A M I N G  T R E E         2 0 1 1 1 2 2 7</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2021-12-13_post_023.html">
+            <img class="grid-img" src="media/instagram/other/17906145758201930.webp" alt="Is Christmas Time Here? 2 0 1 9 1 2 1 4" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">Is Christmas Time Here? 2 0 1 9 1 2 1 4</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2021-12-11_post_024.html">
+            <img class="grid-img" src="media/instagram/other/18268560979048820.webp" alt="Is christmas time here?" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">Is christmas time here?</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2021-12-08_post_025.html">
+            <img class="grid-img" src="media/instagram/other/17900560544383581.webp" alt="2 0 2 1 1 2 0 8" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 2 1 1 2 0 8</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2021-12-06_post_026.html">
+            <img class="grid-img" src="media/instagram/other/17921631413023759.webp" alt="2 0 2 1 1 2 0 6" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 2 1 1 2 0 6</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2021-12-05_post_027.html">
+            <img class="grid-img" src="media/instagram/other/18114294934269481.webp" alt="2 0 2 1 1 2 0 5" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 2 1 1 2 0 5</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2021-08-09_post_028.html">
+            <img class="grid-img" src="media/instagram/other/17935075357607246.jpg" alt="2 0 1 4" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">2 0 1 4</div>
+          </a>
+        </li>
+        
+        <li class="insta-card">
+          <a href="instagram/instapost_html/2021-08-06_post_029.html">
+            <img class="grid-img" src="media/instagram/other/17940549217520552.jpg" alt="S O F A   2 0 0 9" onerror="this.src='media/404.jpg'">
+            <div class="insta-title">S O F A   2 0 0 9</div>
+          </a>
+        </li>
+        
+    </ul>
   </div>
+  
+<footer style="text-align: center; margin: 40px 0 25px 0; font-family: 'MomsTypewriter', monospace; font-size: 0.8em; color: #586069;">
+  Sproporzione commovente tra idee e resa
+</footer>
+
   
 <script>
   document.addEventListener("DOMContentLoaded", function() {

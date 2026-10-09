@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en" translate="no">
 <head>
   <meta charset="UTF-8">
-  <title>Post del 02/10/2020</title>
+  <meta name="google" content="notranslate">
+  <title>Sepia choppy photos     in a night in which i gathereg    my thoughts</title>
   
 <style>
+  @font-face {
+    font-family: 'MomsTypewriter';
+    src: url('../../MomsTypewriter.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
   .wm-wrapper { position: relative; display: inline-block; max-width: 100%; overflow: hidden; }
   .wm-wrapper::after {
     content: ''; position: absolute; bottom: 20px; right: 20px; width: 30%; height: 30%;
@@ -16,41 +23,94 @@
 </style>
 
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; background: #f6f8fa; color: #24292e; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-    a.back-btn { display: inline-block; margin-bottom: 20px; color: #0366d6; text-decoration: none; font-weight: 600; }
+    body { font-family: 'Courier New', Courier, monospace; margin: 0; padding: 0; background: #f6f8fa; color: #24292e; position: relative; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; position: relative; }
+    a.back-btn { display: inline-block; margin-bottom: 20px; color: #0366d6; text-decoration: none; font-weight: 600; font-family: 'Courier New', Courier, monospace; }
     .post-box { background: #fff; border: 1px solid #e1e4e8; border-radius: 8px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-    .post-date { color: #586069; font-size: 0.95em; margin-top: -8px; margin-bottom: 16px; font-weight: 500; }
-    .post-box img { max-width: 100%; height: auto; border-radius: 6px; margin: 15px 0 20px 0; display: block; }
-    .post-text { font-size: 1.05em; line-height: 1.6; color: #24292e; margin-top: 15px; }
+    .post-title { margin-top: 0; margin-bottom: 20px; font-size: 1.15em; white-space: pre-wrap; line-height: 1.4; font-family: 'Courier New', Courier, monospace; }
+    .post-box img { max-width: 100%; height: auto; border-radius: 6px; }
+    .post-date-bottom { text-align: right; color: #586069; font-size: 0.9em; font-weight: 500; margin-top: 12px; font-family: 'Courier New', Courier, monospace; }
+
+    .side-nav {
+      position: fixed;
+      top: 45%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      color: #24292e;
+      border: none;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+      box-shadow: none;
+      transition: all 0.2s ease;
+      z-index: 1000;
+      text-align: center;
+    }
+    .side-nav:hover {
+      background: #ffffff;
+      color: #0366d6;
+      transform: translateY(-50%) scale(1.04);
+    }
+    .side-prev { left: 20px; }
+    .side-next { right: 20px; }
+    .arrow-ascii { font-size: 1.1em; letter-spacing: 2px; margin-bottom: 4px; }
+    .arrow-label { font-size: 0.85em; letter-spacing: 3px; }
+
+    @media (max-width: 1200px) {
+      .side-nav { display: none; }
+    }
   </style>
 </head>
 <body>
   
-<header style="background-color: #24292e; padding: 14px 20px; border-bottom: 1px solid #e1e4e8; margin-bottom: 25px;">
+<header style="background-color: #ffffff; padding: 14px 20px; border-bottom: 1px solid #ffffff; margin-bottom: 25px;">
   <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
-    <a href="../../index.html" style="color: #0366d6; font-size: 1.4em; font-weight: bold; text-decoration: none;">nimesulide</a>
+    <div>
+      <span style="font-family: 'MomsTypewriter', monospace; font-size: 0.95em; color: #586069; display: block; margin-bottom: 2px;">CSO</span>
+      <a href="../../index.html" style="color: #000000; font-size: 1.8em; font-weight: bold; text-decoration: none; font-family: 'MomsTypewriter', monospace; display: block; line-height: 1.1;">nimesulidesign</a>
+      <span style="font-family: 'MomsTypewriter', monospace; font-size: 0.8em; color: #586069; display: block; margin-top: 4px;">A poignant gap between ideas and execution.</span>
+    </div>
     <nav style="display: flex; gap: 20px; align-items: center;">
-      <a href="../../index.html" style="color: #ffffff; text-decoration: none; font-weight: 600;">🏠 Home</a>
-      <a href="../../new.html" style="color: #ffffff; text-decoration: none; font-weight: 600; display: flex; align-items: center;">
+      <a href="../../index.html" style="color: #000000; text-decoration: none; font-weight: 600; font-family: 'Courier New', Courier, monospace;">🏠 Home</a>
+      <a href="../../new.html" style="color: #000000; text-decoration: none; font-weight: 600; display: flex; align-items: center; font-family: 'Courier New', Courier, monospace;">
         <img src="../../media/mano.png" class="nav-icon" alt="New" onerror="this.style.display='none'"> New
       </a>
-      <a href="../../archivio.html" style="color: #58a6ff; text-decoration: none; font-weight: 600; display: flex; align-items: center;">
-        <img src="../../media/camera.jfif" class="nav-icon" alt="Archivio" onerror="this.style.display='none'"> Archivio Instagram
+      <a href="../../archivio.html" style="color: #000000; text-decoration: none; font-weight: 600; display: flex; align-items: center; font-family: 'Courier New', Courier, monospace;">
+        <img src="../../media/camera.jfif" class="nav-icon" alt="Archive" onerror="this.style.display='none'"> Instagram Archive
       </a>
     </nav>
   </div>
 </header>
 
+  
+<a href="2020-10-03_post_200.html" class="side-nav side-prev" title="Previous post">
+  <div class="arrow-ascii">&lt; - - -</div>
+  <div class="arrow-label">PREVIOUS</div>
+</a>
+<a href="2020-10-01_post_202.html" class="side-nav side-next" title="Next post">
+  <div class="arrow-ascii">- - - &gt;</div>
+  <div class="arrow-label">N E X T</div>
+</a>
   <div class="container">
-    <a href="../../archivio.html" class="back-btn">← Torna all'archivio Instagram</a>
+    <a href="../../archivio.html" class="back-btn">← Back to Instagram Archive</a>
     <div class="post-box">
-      <h1 style="margin-bottom: 8px;">Post del 02/10/2020</h1>
-      <div class="post-date">📅 02/10/2020</div>
-      <img src="../../media/instagram/other/17954320780366233.jpg" alt="Post del 02/10/2020" onerror="this.src='../../media/404.jpg'">
-      
+      <h1 class="post-title">Sepia choppy photos
+    in a night
+in which i gathereg
+   my thoughts</h1>
+      <img src="../../media/instagram/other/17954320780366233.jpg" alt="Post image" onerror="this.src='../../media/404.jpg'" style="margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;">
+
+      <div class="post-date-bottom">02/10/2020</div>
     </div>
   </div>
+  
+<footer style="text-align: center; margin: 40px 0 25px 0; font-family: 'MomsTypewriter', monospace; font-size: 0.8em; color: #586069;">
+  Sproporzione commovente tra idee e resa
+</footer>
+
   
 <script>
   document.addEventListener("DOMContentLoaded", function() {
